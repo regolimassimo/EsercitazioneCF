@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Fiscal Code</string>
+    <string name="male">M</string>
+    <string name="female">F</string>
+    <string name="birthdate">Birthdate</string>
+    <string name="country">Country</string>
+    <string name="lastname">LastName</string>
+    <string name="firstname">Firstname</string>
+</resources>
