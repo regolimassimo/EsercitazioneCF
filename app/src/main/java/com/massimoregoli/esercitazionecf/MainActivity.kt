@@ -6,38 +6,31 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.massimoregoli.esercitazionecf.model.User
 import com.massimoregoli.esercitazionecf.ui.theme.EsercitazioneCFTheme
+import androidx.compose.runtime.getValue
+import com.massimoregoli.esercitazionecf.screens.MainView
+import com.massimoregoli.esercitazionecf.ui.theme.BackgroundColor
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             EsercitazioneCFTheme {
+                val user by rememberSaveable {
+                    mutableStateOf(User(this))
+                }
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    color = BackgroundColor
                 ) {
-                    Greeting("Android")
+                    MainView(user)
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    EsercitazioneCFTheme {
-        Greeting("Android")
     }
 }
